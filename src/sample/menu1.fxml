@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="655.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.menu">
+   <children>
+      <AnchorPane id="menu" fx:id="baremenu" layoutX="-2.0" prefHeight="655.0" prefWidth="241.0" style="-fx-background-color: #CF928C;">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="123.0" layoutX="67.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8_perfume_bottle_40px.png" />
+               </image>
+            </ImageView>
+            <Button id="btn" fx:id="menubtnproduit" layoutX="1.0" layoutY="264.0" mnemonicParsing="false" onAction="#menuprod" prefHeight="59.0" prefWidth="249.0" styleClass="btn" stylesheets="@../css/btn.css" text="Produits" textFill="#fffefe">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="menubtnfournisseur" layoutY="346.0" mnemonicParsing="false" onAction="#menufournisseur" prefHeight="59.0" prefWidth="249.0" styleClass="btn" stylesheets="@../css/btn.css" text="Livrai/Retrait" textFill="#fffefe">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="logout" layoutY="523.0" mnemonicParsing="false" onAction="#logout" prefHeight="59.0" prefWidth="249.0" styleClass="btn" stylesheets="@../css/btn.css" text="Logout" textFill="#fffefe">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="46.0" fitWidth="57.0" layoutX="10.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8_Supplier_100px_1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="46.0" fitWidth="57.0" layoutX="10.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8_shutdown_48px.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="menubtncaisse" layoutX="1.0" layoutY="192.0" mnemonicParsing="false" onAction="#menucaisse" prefHeight="59.0" prefWidth="249.0" styleClass="btn" stylesheets="@../css/btn.css" text="Caisse" textFill="#fffefe">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="59.0" fitWidth="46.0" layoutX="13.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8_cash_register_100px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="46.0" fitWidth="57.0" layoutX="10.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8_Perfume_50px.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="menubtnstat" layoutX="1.0" layoutY="444.0" mnemonicParsing="false" onAction="#menustat" prefHeight="59.0" prefWidth="249.0" styleClass="btn" stylesheets="@../css/btn.css" text="Statistique" textFill="#fffefe">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="46.0" fitWidth="57.0" layoutX="11.0" layoutY="451.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icons8_combo_chart_80px.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorprod" layoutX="248.0" prefHeight="655.0" prefWidth="904.0" visible="false">
+         <children>
+            <ImageView fitHeight="655.0" fitWidth="904.0" opacity="0.41" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/1234.jpg" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tableprod" layoutX="100.0" layoutY="150.0" onMouseClicked="#infoprod" prefHeight="457.0" prefWidth="699.0" styleClass="table">
+              <columns>
+                <TableColumn fx:id="codeprod" prefWidth="75.0" text="CODE" />
+                <TableColumn fx:id="prixachat" prefWidth="75.0" text="PRIX D'ACHAT" />
+                  <TableColumn fx:id="prixvente" prefWidth="75.0" text="PRIX DE VENTE" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <TextField id="text" fx:id="search" layoutX="494.0" layoutY="95.0" onKeyPressed="#searchprod" prefHeight="31.0" prefWidth="233.0" style="-fx-border-radius: 10;" styleClass="text" stylesheets="@../css/btn.css" />
+            <Label alignment="CENTER" layoutX="367.0" layoutY="95.0" prefHeight="31.0" prefWidth="119.0" stylesheets="@../css/btn.css" text="Rechercher" textAlignment="CENTER" textFill="#d3736b">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="ajouterprod" layoutX="739.0" layoutY="88.0" mnemonicParsing="false" onAction="#addprod" prefHeight="46.0" prefWidth="46.0" styleClass="btn" stylesheets="@../css/btn.css" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8_plus_52px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorfournisseur" layoutX="248.0" prefHeight="655.0" prefWidth="904.0" visible="false">
+         <children>
+            <ImageView fitHeight="655.0" fitWidth="904.0" layoutX="-1.0" opacity="0.41" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/1234.jpg" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tableliv" layoutX="87.0" layoutY="58.0" onMouseClicked="#infoliv" prefHeight="287.0" prefWidth="749.0">
+              <columns>
+                <TableColumn fx:id="dateliv" prefWidth="151.0" text="Date" />
+                <TableColumn fx:id="prixliv" prefWidth="132.0" text="Prix" />
+                  <TableColumn fx:id="noteliv" prefWidth="465.0" text="Note" />
+              </columns>
+            </TableView>
+            <TextField id="text" fx:id="searchliv" alignment="CENTER" layoutX="596.0" layoutY="14.0" onAction="#searchliv" onKeyPressed="#searchliv" prefHeight="31.0" prefWidth="233.0" style="-fx-border-radius: 10;" styleClass="text" stylesheets="@../css/btn.css" />
+            <Label alignment="CENTER" layoutX="469.0" layoutY="14.0" prefHeight="31.0" prefWidth="119.0" stylesheets="@../css/btn.css" text="Rechercher" textAlignment="CENTER" textFill="#d3736b">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelajouterliv" alignment="CENTER" layoutX="345.0" layoutY="359.0" prefHeight="32.0" prefWidth="249.0" stylesheets="@../css/btn.css" text="Ajouter Livrai/Retrait" textAlignment="CENTER" textFill="#d3736b">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="492.0" layoutY="412.0" prefHeight="31.0" prefWidth="209.0" stylesheets="@../css/btn.css" text="Note" textAlignment="CENTER" textFill="#d3736b">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField id="text" fx:id="prixlivtxt" alignment="CENTER" layoutX="282.0" layoutY="475.0" prefHeight="31.0" prefWidth="199.0" style="-fx-border-radius: 10;" styleClass="text" stylesheets="@../css/btn.css">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="87.0" layoutY="420.0" prefHeight="31.0" prefWidth="151.0" stylesheets="@../css/btn.css" text="Date" textAlignment="CENTER" textFill="#d3736b">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="87.0" layoutY="477.0" prefHeight="31.0" prefWidth="151.0" stylesheets="@../css/btn.css" text="Prix :" textAlignment="CENTER" textFill="#d3736b">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="datelivtxt" layoutX="286.0" layoutY="420.0" prefHeight="32.0" prefWidth="177.0" />
+            <Button fx:id="Ajouterliv" layoutX="751.0" layoutY="602.0" mnemonicParsing="false" onAction="#ajouterliv" prefHeight="38.0" prefWidth="85.0" styleClass="btn" stylesheets="@../css/btn.css" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <TextArea fx:id="note" layoutX="494.0" layoutY="452.0" prefHeight="136.0" prefWidth="342.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextArea>
+            <Button fx:id="Modifieliv" layoutX="391.0" layoutY="583.0" mnemonicParsing="false" onAction="#Modifieliv" prefHeight="38.0" prefWidth="85.0" styleClass="btn" stylesheets="@../css/btn.css" text="Modifié" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="supliv" layoutX="282.0" layoutY="583.0" mnemonicParsing="false" onAction="#supliv" prefHeight="38.0" prefWidth="85.0" styleClass="btn" stylesheets="@../css/btn.css" text="Supprimer" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorstat" layoutX="248.0" prefHeight="655.0" prefWidth="904.0" visible="false">
+         <children>
+            <ImageView fitHeight="655.0" fitWidth="904.0" opacity="0.41" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/1234.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="321.0" layoutY="45.0" prefHeight="31.0" prefWidth="225.0" text="         Statistiques :" textAlignment="CENTER" textFill="#e4685c">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="429.0" layoutY="76.0" startX="-100.0" stroke="#cf928c" />
+            <Label fx:id="nbvente" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="121.0" prefHeight="100.0" prefWidth="228.0" stylesheets="@../css/btn.css" text="Nombre De Vente :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="totaletxt" alignment="CENTER" contentDisplay="CENTER" layoutX="352.0" layoutY="121.0" prefHeight="100.0" prefWidth="228.0" stylesheets="@../css/btn.css" text="Totale :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="beneficetxt" alignment="CENTER" contentDisplay="CENTER" layoutX="647.0" layoutY="121.0" prefHeight="100.0" prefWidth="228.0" stylesheets="@../css/btn.css" text="Bénéfices :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" contentDisplay="TOP" layoutX="60.0" layoutY="267.0" mnemonicParsing="false" onAction="#parjour" prefHeight="347.0" prefWidth="228.0" styleClass="btn" stylesheets="@../css/btn.css" text="Par Jours " textFill="#fcfcfc">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8_combo_chart_80px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="TOP" layoutX="352.0" layoutY="267.0" mnemonicParsing="false" onAction="#parmois" prefHeight="347.0" prefWidth="228.0" styleClass="btn" stylesheets="@../css/btn.css" text="Par mois " textFill="#fcfcfc">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8_combo_chart_80px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="TOP" layoutX="647.0" layoutY="267.0" mnemonicParsing="false" onAction="#parannees" prefHeight="347.0" prefWidth="228.0" styleClass="btn" stylesheets="@../css/btn.css" text="Par Années " textFill="#fcfcfc">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icons8_combo_chart_80px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorcaisse" layoutX="248.0" prefHeight="655.0" prefWidth="904.0">
+         <children>
+            <ImageView fitHeight="655.0" fitWidth="904.0" opacity="0.41" pickOnBounds="true">
+               <image>
+                  <Image url="@../image/1234.jpg" />
+               </image>
+            </ImageView>
+            <TextField id="text" fx:id="searchprodcaisse" alignment="CENTER" layoutX="203.0" layoutY="60.0" onKeyPressed="#searchprodcaisse" prefHeight="31.0" prefWidth="233.0" style="-fx-border-radius: 10;" styleClass="text" stylesheets="@../css/btn.css" />
+            <Label alignment="CENTER" layoutX="76.0" layoutY="60.0" prefHeight="31.0" prefWidth="119.0" stylesheets="@../css/btn.css" text="Rechercher" textAlignment="CENTER" textFill="#d3736b">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tablecaisseprod" layoutX="76.0" layoutY="117.0" onMouseClicked="#infoprodcaisse" prefHeight="214.0" prefWidth="362.0">
+              <columns>
+                <TableColumn fx:id="codeprodcaisse" prefWidth="75.0" text="Code-Produit" />
+                <TableColumn fx:id="prixprodcaisse" prefWidth="75.0" text="Prix" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <TextField id="text" fx:id="choixprix" alignment="CENTER" layoutX="598.0" layoutY="131.0" onKeyPressed="#searchliv" prefHeight="31.0" prefWidth="233.0" style="-fx-border-radius: 10;" styleClass="text" stylesheets="@../css/btn.css" />
+            <Label alignment="CENTER" layoutX="471.0" layoutY="131.0" prefHeight="31.0" prefWidth="119.0" stylesheets="@../css/btn.css" text="Prix" textAlignment="CENTER" textFill="#d3736b">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField id="text" fx:id="choixqte" alignment="CENTER" layoutX="596.0" layoutY="192.0" onKeyPressed="#searchliv" prefHeight="31.0" prefWidth="233.0" style="-fx-border-radius: 10;" styleClass="text" stylesheets="@../css/btn.css" />
+            <Label alignment="CENTER" layoutX="469.0" layoutY="192.0" prefHeight="31.0" prefWidth="119.0" stylesheets="@../css/btn.css" text="Quantité" textAlignment="CENTER" textFill="#d3736b">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="Ajoutervente" layoutX="744.0" layoutY="278.0" mnemonicParsing="false" onAction="#ajouterventecaisse" prefHeight="38.0" prefWidth="85.0" styleClass="btn" stylesheets="@../css/btn.css" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <TableView fx:id="tablevente" layoutX="76.0" layoutY="357.0" prefHeight="228.0" prefWidth="749.0">
+              <columns>
+                <TableColumn fx:id="datevente" prefWidth="75.0" text="Date" />
+                <TableColumn fx:id="codeprodvente" prefWidth="75.0" text="Code-Produit" />
+                  <TableColumn fx:id="prixventevente" prefWidth="75.0" text="PRix" />
+                  <TableColumn fx:id="qtevente" prefWidth="75.0" text="Qte" />
+                  <TableColumn fx:id="totalevente" prefWidth="75.0" text="Totale" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
